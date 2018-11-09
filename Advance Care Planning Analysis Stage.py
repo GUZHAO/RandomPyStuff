@@ -76,15 +76,10 @@ def tokenize_phrase(text):
 
 
 def phrase_pic(q_name, pic_name):
-    q_text = []
     df_q_value = df_sorted.loc[df_sorted['SER_ILL'] == q_name]['SER_ILL_CONV'].values
     df_q_value_rn = filter(partial(is_not, None), df_q_value)
-    # Frequency Table on question phrase
-    for i in df_q_value_rn:
-        q_text.append(i.replace(" ", ""))
-
+    q_text = [word.replace(" ", "") for word in df_q_value_rn]
     df_q_value_join = " ".join(q_text)
-
     q_ctr = Counter(tokenize_phrase(df_q_value_join))
 
     # cloud for words
@@ -97,9 +92,9 @@ def phrase_pic(q_name, pic_name):
     plt.savefig("C:/Users/gz056/Downloads/" + pic_name + ".png", dpi=800)
 
 
-# phrase_pic('R PHS AMB SICG QUESTION 2', pic_name="q2")
-# phrase_pic('R PHS AMB SICG QUESTION 3', pic_name="q3")
-# phrase_pic('R PHS AMB SICG PROGNOSIS', pic_name="q4")
+phrase_pic('R PHS AMB SICG QUESTION 2', pic_name="q2")
+phrase_pic('R PHS AMB SICG QUESTION 3', pic_name="q3")
+phrase_pic('R PHS AMB SICG PROGNOSIS', pic_name="q4")
 
 def tokenize(text):
     text = text.lower()
@@ -131,12 +126,12 @@ def phrase_comm(qc_name, c_name, pic_name):
     plt.savefig("C:/Users/gz056/Downloads/" + pic_name + ".png", dpi=800)
 
 
-phrase_comm('R PHS AMB SICG QUESTION 2', 'SER_ILL_CONV_COMM', 'q2_comm')
-phrase_comm('R PHS AMB SICG QUESTION 3', 'SER_ILL_CONV_COMM', 'q3_comm')
-phrase_comm('R PHS AMB SICG PROGNOSIS', 'SER_ILL_CONV_COMM', 'q4_comm')
-phrase_comm('R PHS AMB SICG QUESTION 1', 'SER_ILL_CONV', 'q1')
-phrase_comm('R PHS AMB SICG QUESTION 5', 'SER_ILL_CONV', 'q5')
-phrase_comm('R PHS AMB SICG QUESTION 6', 'SER_ILL_CONV', 'q6')
-phrase_comm('R PHS AMB SICG QUESTION 1', 'SER_ILL_CONV_COMM', 'q1_comm')
-phrase_comm('R PHS AMB SICG QUESTION 5', 'SER_ILL_CONV_COMM', 'q5_comm')
-phrase_comm('R PHS AMB SICG QUESTION 6', 'SER_ILL_CONV_COMM', 'q6_comm')
+# phrase_comm('R PHS AMB SICG QUESTION 2', 'SER_ILL_CONV_COMM', 'q2_comm')
+# phrase_comm('R PHS AMB SICG QUESTION 3', 'SER_ILL_CONV_COMM', 'q3_comm')
+# phrase_comm('R PHS AMB SICG PROGNOSIS', 'SER_ILL_CONV_COMM', 'q4_comm')
+# phrase_comm('R PHS AMB SICG QUESTION 1', 'SER_ILL_CONV', 'q1')
+# phrase_comm('R PHS AMB SICG QUESTION 5', 'SER_ILL_CONV', 'q5')
+# phrase_comm('R PHS AMB SICG QUESTION 6', 'SER_ILL_CONV', 'q6')
+# phrase_comm('R PHS AMB SICG QUESTION 1', 'SER_ILL_CONV_COMM', 'q1_comm')
+# phrase_comm('R PHS AMB SICG QUESTION 5', 'SER_ILL_CONV_COMM', 'q5_comm')
+# phrase_comm('R PHS AMB SICG QUESTION 6', 'SER_ILL_CONV_COMM', 'q6_comm')
