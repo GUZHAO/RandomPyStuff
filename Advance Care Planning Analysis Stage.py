@@ -96,6 +96,7 @@ phrase_pic('R PHS AMB SICG QUESTION 2', pic_name="q2")
 phrase_pic('R PHS AMB SICG QUESTION 3', pic_name="q3")
 phrase_pic('R PHS AMB SICG PROGNOSIS', pic_name="q4")
 
+
 def tokenize(text):
     text = text.lower()
     text = re.sub('[' + string.punctuation + '0-9\\r\\t\\n]', ' ', text)
